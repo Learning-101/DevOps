@@ -1,2 +1,2 @@
-# Devops
-Devops Learning
+# DevOps
+DevOps Learning

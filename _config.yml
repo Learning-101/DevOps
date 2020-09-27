@@ -1,7 +1,7 @@
 title: DevOps Training Session
 description: GitHub, Jenkins, Artifactory, AgentSmith, Curl, CI&CD
 google_analytics: 
-show_downloads: true
+#show_downloads: true
 theme: jekyll-theme-cayman
 
 gems:

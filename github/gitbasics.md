@@ -182,7 +182,7 @@ or like this:
 
 3.Verify that the fingerprint in the message you see matches one of the messages in step 2, then type yes:
 ```shell
-$ ssh -T git@github.allstate.com
+$ ssh -T git@github.com
 Hi <<username>>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 

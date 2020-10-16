@@ -32,7 +32,7 @@ Many of us aware about the version control when it comes to work with multiple d
 
 ## Github install
 
-#### Installing *Git* – the easy way
+##### Installing *Git* – the easy way
 
 > *Git* is a [free and open source](http://git-scm.com/about/free-and-open-source) distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
@@ -43,17 +43,17 @@ Choose one of the following options.
 - [Instructions for *Mac*](#file-mac-md)
 - [Instructions for *Linux*](#file-linux-md)
 
-# Installing *Git* on a *Windows* 
+##### Installing *Git* on a *Windows* 
  
 **Download** *Git* from [Git for Windows](https://gitforwindows.org) and **install it**. 
 
-# Installing *Git* on a *Mac*
+##### Installing *Git* on a *Mac*
 
 [Open a terminal window](http://www.youtube.com/watch?v=zw7Nd67_aFw).
 
-## Step 1 – Install [*Homebrew*](http://brew.sh/)
+###### Step 1 – Install [*Homebrew*](http://brew.sh/)
 
-> *Homebrew* […] simplifies the installation of software on the Mac OS X operating system.
+> *H#omebrew* […] simplifies the installation of software on the Mac OS X operating system.
 
 – [Homebrew – Wikipedia](http://en.wikipedia.org/wiki/Homebrew_%28package_management_software%29)
 
@@ -66,7 +66,7 @@ brew doctor
 
 You will be offered to install the *Command Line Developer Tools* from *Apple*. **Confirm by clicking *Install***. After the installation finished, continue installing *Homebrew* by **hitting `Return`** again.
 
-## Step 2 – Install *Git*
+##### Step 2 – Install *Git*
 
 **Copy & paste the following** into the terminal window and **hit `Return`**.
 
@@ -76,12 +76,12 @@ brew install git
 
 **You can use *Git* now.**
 
-# Installing *Git* on *Linux*
+##### Installing *Git* on *Linux*
 
 Determine on **which *Linux* distribution** your system is based on. See [List of Linux distributions – Wikipedia](http://en.wikipedia.org/wiki/List_of_Linux_distributions) for a list. **Most *Linux* systems – including *Ubuntu* – are *Debian*-based**.
 
 
-## *Debian*-based linux systems
+##### *Debian*-based linux systems
 
 **[Open a terminal window](https://help.ubuntu.com/community/UsingTheTerminal). Copy & paste the following** into the terminal window and **hit `Return`**. You may be prompted to enter your password.
 
@@ -94,7 +94,7 @@ sudo apt install git
 **You can use *Git* now.**
 
 
-## *Red Hat*-based linux systems
+##### *Red Hat*-based linux systems
 
 **Open a terminal. Copy & paste the following** into the terminal window and **hit `Return`**. You may be prompted to enter your password.
 

@@ -198,10 +198,23 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
 - fork: a copy of a repository on GitHub owned by a different user
 - pull request: a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
 - HEAD: representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout
+- ORGANIZATIONS: Organizations allow users to share ownership and administration for a group of repositories. They help developers collaborate by providing a shared workspace to coordinate on projects, and practical permissions tools to make sure the right people have access to the right repositories.
+- Outside Collaborators: You can grant access to repositories to users who are not part of an organization by making them Outside Collaborators. Each repository maintains a list of these externally approved users for easy auditing. This allows you to collaborate with any user on GitHub without giving them access to the rest of the data in your Organization.
+- 
 
 
+# Github Organization 
 
 
+# Github Repo Types 
+
+| Repo Type | Description | 
+|----|-----|
+| Public Repo | They're visible to any user on your GitHub Enterprise instance. everyone who has access to your GitHub instance has access to view and clone the repository and read all Issues and Pull Requests. With a GitHub user account, they can also open Issues, join discussions, and fork the repository, but won't be able to modify any of the files directly. Push access to repositories is granted by adding users as collaborators, or, in the case of organization members, assigning write permissions to members or teams. |
+| Private Repo |  They're only available to the repository owner. You can add collaborators of your choise to share with. Private repositories are only visible to the members(users) of that users or organizations. An organization can configure a default repository permission that gets applied to all members, but users can be granted more explicit permissions through their membership in a relevant team.
+ |
+
+ Note:-  You can keep all the repositories in the your organization's GitHub Enterprise to Private by default with exception to a few repositories which contain sensitive information. This is a good way to keep reusing the code in the same organization.  If you have a repository you want made Public instead of Private you can request to your GitHub Enterprise to white-list it.
 
 # Gitlab Commands
 ### Getting & Creating Projects

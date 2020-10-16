@@ -203,9 +203,31 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
 - Staging Area: You can think of the staging area as a prep table where Git will take the next commit. Files on the Staging Index are poised to be added to the repository.
 - SHA : SHA is basically an ID number for each commit. Ex. E2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6
 
+# Github Global Configure 
 
+Configure user information for all local repositories
+
+```shell 
+$ git config --global user.name "[name]"
+```
+
+Sets the name you want attached to your commit transactions
+
+```shell 
+$ git config --global user.email "[email address]"
+```
+
+Sets the email you want attached to your commit transactions
+
+```shell 
+$ git config --global color.ui auto
+```
+
+Enables helpful colorization of command line output
 
 # Github Organization 
+
+ORGANIZATIONS: Organizations allow users to share ownership and administration for a group of repositories. They help developers collaborate by providing a shared workspace to coordinate on projects, and practical permissions tools to make sure the right people have access to the right repositories.
 
 
 # Github Repo Types 
@@ -217,6 +239,9 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
  |
 
  Note:-  You can keep all the repositories in the your organization's GitHub Enterprise to Private by default with exception to a few repositories which contain sensitive information. This is a good way to keep reusing the code in the same organization.  If you have a repository you want made Public instead of Private you can request to your GitHub Enterprise to white-list it.
+
+###  .gitignore file
+Sometimes it may be a good idea to exclude files from being tracked with Git. This is typically done in a special file named .gitignore. You can find helpful templates for .gitignore files at github.com/github/gitignore.
 
 # Gitlab Commands
 ### Getting & Creating Projects
@@ -245,20 +270,22 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
 
 ### Branching & Merging
 
+Branches are an important part of working with Git. Any commits you make will be made on the branch you’re currently “checked out” to. Use git status to see which branch that is.
+
 | Command | Description |
 | ------- | ----------- |
 | `git branch` | List branches (the asterisk denotes the current branch) |
 | `git branch -a` | List all branches (local and remote) |
 | `git branch [branch name]` | Create a new branch |
+| `git checkout -b [branch name]` | Create a new branch and switch to it |
+| `git merge [branch name]` | Merge a branch into the active branch |
 | `git branch -d [branch name]` | Delete a branch |
 | `git push origin --delete [branch name]` | Delete a remote branch |
-| `git checkout -b [branch name]` | Create a new branch and switch to it |
 | `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it |
 | `git branch -m [old branch name] [new branch name]` | Rename a local branch |
 | `git checkout [branch name]` | Switch to a branch |
 | `git checkout -` | Switch to the branch last checked out |
 | `git checkout -- [file-name.txt]` | Discard changes to a file |
-| `git merge [branch name]` | Merge a branch into the active branch |
 | `git merge [source branch] [target branch]` | Merge a branch into a target branch |
 | `git stash` | Stash changes in a dirty working directory |
 | `git stash clear` | Remove all stashed entries |
@@ -284,3 +311,128 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
 | `git log --summary` | View changes (detailed) |
 | `git log --oneline` | View changes (briefly) |
 | `git diff [source branch] [target branch]` | Preview changes before merging |
+
+### Redo commits
+| Command | Description |
+| ------- | ----------- |
+| `git reset [commit]` | Undoes all commits after [commit], preserving changes locally |
+| `git reset --hard [commit]` | Discards all history and changes back to the specified commit |
+
+
+
+### Git Configurations
+Your `.gitconfig` file contains all your Git configurations.
+
+#### Aliases
+Aliases are helpers that let you define your own git calls. For example you could set `git a` to run `git add --all`.
+
+To add an alias, either navigate to `~/.gitconfig` and fill it out in the following format:
+
+```
+[alias]
+  co = checkout
+  cm = commit
+  p = push
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+```
+
+...or type in the command-line:
+
+```bash
+$ git config --global alias.new_alias git_function
+```
+
+For example:
+
+```bash
+$ git config --global alias.cm commit
+```
+
+For an alias with multiple functions use quotes:
+
+```bash
+$ git config --global alias.ac 'add -A . && commit'
+```
+
+Some useful aliases include:
+
+| Alias | Command | What to Type |
+| --- | --- | --- |
+| `git cm` | `git commit` | `git config --global alias.cm commit` |
+| `git co` | `git checkout` | `git config --global alias.co checkout` |
+| `git ac` | `git add . -A` `git commit` | `git config --global alias.ac '!git add -A && git commit'` |
+| `git st` | `git status -sb` | `git config --global alias.st 'status -sb'` |
+| `git tags` | `git tag -l` | `git config --global alias.tags 'tag -l'` |
+| `git branches` | `git branch -a` | `git config --global alias.branches 'branch -a'` |
+| `git cleanup` | `git branch --merged \| grep -v '*' \| xargs git branch -d` | `git config --global alias.cleanup "!git branch --merged \| grep -v '*' \| xargs git branch -d"` |
+| `git remotes` | `git remote -v` | `git config --global alias.remotes 'remote -v'` |
+| `git lg` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --` | `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"` |
+
+*Some Aliases are taken from [@mathiasbynens](https://github.com/mathiasbynens) dotfiles: https://github.com/mathiasbynens/dotfiles/blob/master/.gitconfig*
+
+#### Auto-Correct
+Git gives suggestions for misspelled commands and if auto-correct is enabled the command can be fixed and executed automatically. Auto-correct is enabled by specifying an integer which is the delay in tenths of a second before git will run the corrected command. Zero is the default value where no correcting will take place, and a negative value will run the corrected command with no delay.
+
+For example, if you type `git comit` you will get this:
+
+```bash
+$ git comit -m "Message"
+# git: 'comit' is not a git command. See 'git --help'.
+
+# Did you mean this?
+#   commit
+```
+
+Auto-correct can be enabled like this (with a 1.5 second delay):
+
+```bash
+$ git config --global help.autocorrect 15
+```
+
+So now the command `git comit` will be auto-corrected to `git commit` like this:
+
+```bash
+$ git comit -m "Message"
+# WARNING: You called a Git command named 'comit', which does not exist.
+# Continuing under the assumption that you meant 'commit'
+# in 1.5 seconds automatically...
+```
+
+The delay before git will rerun the command is so the user has time to abort.
+
+#### Color
+To add more color to your Git output:
+
+```bash
+$ git config --global color.ui 1
+```
+
+[*Read more about the Git `config` command.*](http://git-scm.com/docs/git-config)
+
+### Git Resources
+| Title | Link |
+| ----- | ---- |
+| Official Git Site | http://git-scm.com/ |
+| Official Git Video Tutorials | http://git-scm.com/videos |
+| Code School Try Git | http://try.github.com/ |
+| Introductory Reference & Tutorial for Git | http://gitref.org/ |
+| Official Git Tutorial | http://git-scm.com/docs/gittutorial |
+| Everyday Git | http://git-scm.com/docs/everyday |
+| Git Immersion | http://gitimmersion.com/ |
+| Git God | https://github.com/gorosgobe/git-god |
+| Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
+| Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
+| Git Visualization Playground | http://onlywei.github.io/explain-git-with-d3/#freeplay |
+| Learn Git Branching | http://pcottle.github.io/learnGitBranching/ |
+| A collection of useful .gitignore templates | https://github.com/github/gitignore |
+| Unixorn's git-extra-commands collection of git scripts | https://github.com/unixorn/git-extra-commands |
+
+#### Git Books
+| Title | Link |
+| ----- | ---- |
+| Pro Git | http://git-scm.com/book |
+| Git Internals PluralSight | https://github.com/pluralsight/git-internals-pdf |
+| Git in the Trenches | http://cbx33.github.io/gitt/ |

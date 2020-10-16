@@ -200,7 +200,9 @@ Hi <<username>>! You've successfully authenticated, but GitHub does not provide 
 - HEAD: representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout
 - ORGANIZATIONS: Organizations allow users to share ownership and administration for a group of repositories. They help developers collaborate by providing a shared workspace to coordinate on projects, and practical permissions tools to make sure the right people have access to the right repositories.
 - Outside Collaborators: You can grant access to repositories to users who are not part of an organization by making them Outside Collaborators. Each repository maintains a list of these externally approved users for easy auditing. This allows you to collaborate with any user on GitHub without giving them access to the rest of the data in your Organization.
-- 
+- Staging Area: You can think of the staging area as a prep table where Git will take the next commit. Files on the Staging Index are poised to be added to the repository.
+- SHA : SHA is basically an ID number for each commit. Ex. E2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6
+
 
 
 # Github Organization 

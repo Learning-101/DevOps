@@ -116,12 +116,88 @@ Using the SSH protocol, you can connect and authenticate to remote servers and s
 [Add ssh agent ](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 
+Generating a new SSH key
+
+Open Git Bash.
+
+Paste the text below, substituting in your GitHub email address.
+
+``` $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" ```
+
+This creates a new ssh key, using the provided email as a label.
+
+When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+
+``` > Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter] ```
+
+At the prompt, type a secure passphrase. For more information, see "Working with SSH key passphrases".
+
+```shell
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again] 
+```
+
+#### Adding a new SSH key to your GitHub account
+
+1. Copy the SSH key to your clipboard.
+
+2. If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+
+```shell
+$ clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+```
+
+3. In the upper-right corner of any page, click your profile photo, then click Settings.
+4. In the user settings sidebar, click SSH and GPG keys.
+5. Click New SSH key or Add SSH key.
+6. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal System, you might call this key "Personal SystemName".
+7. Paste your key into the "Key" field.
+8. Click Add SSH key.
+9. If prompted, confirm your GitHub password.
 
 
+#### Testing your SSH connection
+
+1. Open Git Bash.
+
+2. Enter the following:
+```shell
+$ ssh -T git@github.com
+# Attempts to ssh to GitHub
+```
+
+You may see a warning like this:
+```shell
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+> Are you sure you want to continue connecting (yes/no)?
+```
+or like this:
+```shell
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+> Are you sure you want to continue connecting (yes/no)?
+```
+
+3.Verify that the fingerprint in the message you see matches one of the messages in step 2, then type yes:
+```shell
+$ ssh -T git@github.allstate.com
+Hi <<username>>! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 
+## Glossary
 
-
+- git: an open source, distributed version-control system
+- GitHub: a platform for hosting and collaborating on Git repositories
+- commit: a Git object, a snapshot of your entire repository compressed into a SHA
+- branch: a lightweight movable pointer to a commit
+- clone: a local version of a repository, including all commits and branches
+- remote: a common repository on GitHub that all team members use to exchange their changes
+- fork: a copy of a repository on GitHub owned by a different user
+- pull request: a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
+- HEAD: representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout
 
 
 
@@ -130,10 +206,17 @@ Using the SSH protocol, you can connect and authenticate to remote servers and s
 # Gitlab Commands
 ### Getting & Creating Projects
 
+| Command Type | Command | Description |
+|------- | ------- | ----------- |
+| ssh |  ``` git clone ssh://git@github.com/[username]/[repository-name].git ``` | Create a local copy of a remote repository using ssh option   |
+| https | ``` git clone https://github.com/[username]/[repository-name].git ``` |  Create a local copy of remote repository using https option required user id password  |
+| Git CLI | ``` gh repo clone [username]/[repository-name] ``` |  Create a local copy of remote repository using ssh  |
+
+#### Creating Projects in the local system 
 | Command | Description |
-| ------- | ----------- |
-| `git init` | Initialize a local Git repository |
-| `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
+|----|-----|
+| git init  | Initialize a local Git repository   |
+
 
 ### Basic Snapshotting
 

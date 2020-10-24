@@ -420,11 +420,9 @@ $ git config --global color.ui 1
 | Official Git Tutorial | http://git-scm.com/docs/gittutorial |
 | Everyday Git | http://git-scm.com/docs/everyday |
 | Git Immersion | http://gitimmersion.com/ |
-| Git God | https://github.com/gorosgobe/git-god |
 | Git for Computer Scientists | http://eagain.net/articles/git-for-computer-scientists/ |
 | Git Magic | http://www-cs-students.stanford.edu/~blynn/gitmagic/ |
 | Git Visualization Playground | http://onlywei.github.io/explain-git-with-d3/#freeplay |
-| Learn Git Branching | http://pcottle.github.io/learnGitBranching/ |
 | A collection of useful .gitignore templates | https://github.com/github/gitignore |
 | Unixorn's git-extra-commands collection of git scripts | https://github.com/unixorn/git-extra-commands |
 

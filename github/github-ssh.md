@@ -9,7 +9,7 @@
 `$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` <br/>
 sample comand <br/>
 `$ ssh-keygen -t rsa -b 4096 -C "test@hotmail.com"` <br/>
-![](github/githubimages/1-github.png)
+![](https://github.com/Learning-101/DevOps/blob/master/github/githubimages/1-github.png)
 3. When you are prompted to "Enter a file in which to save the key," <br/>
  press Enter. This accepts the default file location. <br />
  ![](github/githubimages/2-github.png)

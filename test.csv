@@ -1,3 +1,19 @@
 naveen kumar is working has developer 
 I am working some MNC company
 I like DEVOPS tools 
+
+
+ public void static  main (String[] args){
+       
+       System.out.print("Hello World ");
+ 
+ }
+ raminreddy --> verson0 --> base code 
+ naveen --> version1  --> base code   
+ satish --> version2 --> void static    --> git revert version1
+ kiran -->  version3  --> args[]  String[] --> git revert version1
+ 
+ Version Contorl -->  back track the changes / history / logs 
+ 
+ 
+ Base code 
